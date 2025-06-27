@@ -1,0 +1,51 @@
+# Node dependencies
+node_modules/
+
+# Yarn cache and integrity
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+.yarnrc.yml
+
+# Yarn v1 lock file (if using v2+)
+yarn.lock
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Test outputs
+coverage/
+*.log
+*.test.js.snap
+
+# Editor and system files
+.DS_Store
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# VSCode
+.vscode/
+
+# macOS
+*.DS_Store
+
+# Linux
+*.swp
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: ignore local Firebase/Netlify/etc. emulators
+.firebase/
+.netlify/
+.vercel/
