@@ -101,6 +101,7 @@ function CategoriesPage({ books, categories, onBookSelect }) {
     legal: "https://youtube.com/shorts/77MR4BcX0GE",
     young: "https://youtu.be/uGDuMy8Xwk4",
     young2: "https://youtu.be/QdtPwwqSbtQ",
+    midnight: "https://youtube.com/shorts/NWOwxQcxD2Q",
   };
 
   return (
@@ -144,6 +145,18 @@ function CategoriesPage({ books, categories, onBookSelect }) {
           <div className="video-wrapper">
             <ReactPlayer
               url={categoryVideos.young2}
+              controls
+              width="100%"
+              height="400px"
+              className="react-player"
+            />
+          </div>
+        )}
+
+        {selectedCategory === "Action & Thriller" && (
+          <div className="video-wrapper">
+            <ReactPlayer
+              url={categoryVideos.midnight}
               controls
               width="100%"
               height="400px"
