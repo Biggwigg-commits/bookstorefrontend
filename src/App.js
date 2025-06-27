@@ -132,7 +132,25 @@ function CategoriesPage({ books, categories, onBookSelect }) {
           ))}
         </div>
 
+        {/* Books Grid */}
+        <div className="books-grid">
+          {filterBooks().map((book) => (
+            <BookCard key={book.id} book={book} onSelect={onBookSelect} />
+          ))}
+        </div>
+
         {/* ✅ ReactPlayer */}
+        {selectedCategory === "Legal Information" && (
+          <div className="video-wrapper">
+            <ReactPlayer
+              url={categoryVideos.young2}
+              controls
+              width="100%"
+              height="400px"
+              className="react-player"
+            />
+          </div>
+        )}
 
         {selectedCategory !== "all" ? (
           <div className="video-wrapper">
@@ -157,13 +175,6 @@ function CategoriesPage({ books, categories, onBookSelect }) {
         ) : (
           <div></div>
         )}
-
-        {/* Books Grid */}
-        <div className="books-grid">
-          {filterBooks().map((book) => (
-            <BookCard key={book.id} book={book} onSelect={onBookSelect} />
-          ))}
-        </div>
       </div>
     </div>
   );
