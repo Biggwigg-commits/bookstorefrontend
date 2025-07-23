@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube"; // YouTube optimized
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
+import { booksData, categoriesData, featuredData } from "./Common/constant";
 
-const BACKEND_URL =
-  process.env.REACT_APP_BACKEND_URL || "http://localhost:8001";
+// const BACKEND_URL =
+//   process.env.REACT_APP_BACKEND_URL || "http://localhost:8001";
 
 // Home Page Component
 function HomePage({ books, featuredBooks, categories, onBookSelect }) {
@@ -520,47 +521,12 @@ function ImageModal({ book, onImageClose }) {
 
 // Main App Component
 function App() {
-  const [books, setBooks] = useState([]);
-  const [featuredBooks, setFeaturedBooks] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const books = booksData;
+  const featuredBooks = featuredData;
+  const categories = categoriesData;
+
   const [selectedBook, setSelectedBook] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const [booksRes, categoriesRes, featuredRes] = await Promise.all([
-        fetch(`${BACKEND_URL}/api/books`),
-        fetch(`${BACKEND_URL}/api/categories`),
-        fetch(`${BACKEND_URL}/api/featured-books`),
-      ]);
-
-      const booksData = await booksRes.json();
-      const categoriesData = await categoriesRes.json();
-      const featuredData = await featuredRes.json();
-
-      setBooks(booksData);
-      setCategories(categoriesData.categories);
-      setFeaturedBooks(featuredData);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="loading-spinner"></div>
-        <p>Loading Literary Depot...</p>
-      </div>
-    );
-  }
 
   return (
     <Router>
