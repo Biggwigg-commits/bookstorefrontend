@@ -15,6 +15,7 @@ function HomePage({ books, featuredBooks, categories, onBookSelect }) {
     if (selectedCategory === "all") {
       return books;
     }
+    ...jhmbn
     return books.filter((book) => book.category === selectedCategory);
   };
 
