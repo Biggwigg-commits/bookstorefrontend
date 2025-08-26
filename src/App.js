@@ -24,7 +24,7 @@ function HomePage({ books, featuredBooks, categories, onBookSelect }) {
       <section className="hero">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h2 className="hero-title">Welcome to Literary Depotyt</h2>
+          <h2 className="hero-title">Welcome to Literary Depot</h2>
           <p className="hero-subtitle">
             Discover extraordinary books that inspire, educate, and entertain
           </p>
